@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from flower import views
+from about_us import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('flowers/', views.flower_list, name="flowers_list"),
+    path('about_us',v.about_view)
 ]
 

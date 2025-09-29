@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About & Contact</title>
+</head>
+<body>
+
+    <section>
+        <h1>{{ about.title }}</h1>
+        <p>{{ about.desc}}</p>
+    </section>
+
+    <hr>
+
+
+    <section>
+        <h2>Contact Us</h2>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Address:</strong> {{ contact.address }}</p>
+        <p>
+            <a href="{{ contact.adres_url }}" target="_blank">📍 Location</a>
+        </p>
+        <p><strong>Phone:</strong> {{ contact.phone_number }}</p>
+        <p>
+            <a href="{{ contact.ins_url }}" target="_blank">📷 Instagram</a>
+        </p>
+        <p>
+            <a href="{{ contact.whats_url }}" target="_blank">💬 WhatsApp</a>
+        </p>
+    </section>
+</body>
+</html>
