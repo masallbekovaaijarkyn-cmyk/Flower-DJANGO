@@ -1,0 +1,48 @@
+{% extends "../base.html" %}
+
+{% block title %}🌸 Волшебный вход 🌸{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>🌷 Добро пожаловать, {{ user.username }} 🌷</h1>
+        <div class="card">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="avatar" class="avatar">
+            {% else %}
+                <img src="https://i.ibb.co/4pDNDk1/avatar.png" alt="avatar" class="avatar">
+            {% endif %}
+            <p>Email: {{ user.email }}</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label>Загрузить новое фото:</label>
+                <input type="file" name="avatar">
+                <button type="submit" name="upload">Обновить аватар</button>
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="logout">Выйти</button>
+            </form>
+            <button >
+                <a href="http://127.0.0.1:8000/home/flowers/">web app</a>
+            </button>
+        </div>
+    {% else %}
+        <h1>✨ Вход или Регистрация ✨</h1>
+        <div class="card">
+            <h2>Регистрация🎀</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ signup_form.as_p }}
+                <button type="submit" name="signup">Зарегистрироваться</button>
+            </form>
+        </div>
+        <div class="card">
+            <h2>Вход если есть аккаунт🎀</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit" name="login">Войти</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

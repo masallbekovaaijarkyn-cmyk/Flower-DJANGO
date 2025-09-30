@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'flower',
     'about_us',
-    'accounts',
+    'authentication1',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

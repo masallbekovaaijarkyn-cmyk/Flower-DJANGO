@@ -5,13 +5,14 @@ from about_us import views as v
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from authentication1.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('flowers/', views.flower_list, name="flowers_list"),
-    path('about_us',v.about_view),
+    path('home/flowers/', views.flower_list, name="flowers_list"),
+    path('home/about_us',v.about_view),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
-    path("accounts/", include("accounts.urls")),  # наше приложение
+    path('home/', home_view, name='home'),
     path("accounts/", include("django.contrib.auth.urls")),
 ]
 
